@@ -1,61 +1,71 @@
+
 package dsalgo_hooks;
 
+import java.io.File;
+import java.sql.DriverManager;
+import java.time.Duration;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
 
 import io.cucumber.java.After;
+import io.cucumber.java.AfterAll;
 import io.cucumber.java.Before;
+import io.cucumber.java.BeforeAll;
+import io.cucumber.java.Scenario;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class Hooks {
 	
-	@Before("Setup browser")
+	@Before()
 	public void setUp() {
-		String browser = null;
-		String url = null;
-		DriverManager.launchBrowser(browser, url);
+		String browser = "Edge";
+		  String url = "https://dsportalapp.herokuapp.com";
+		  DriverFactory.launchBrowser(browser, url);
+			/*
+			 * DriverFactory.getDriver().findElement(By.xpath("//a[@href='/home']")).click()
+			 * ; DriverFactory.getDriver().findElement(By.linkText("Sign in")).click();
+			 * DriverFactory.getDriver().findElement(By.id("id_username")).sendKeys(
+			 * "pam2024");
+			 * DriverFactory.getDriver().findElement(By.id("id_password")).sendKeys(
+			 * "pwd@2024");
+			 * DriverFactory.getDriver().findElement(By.xpath("//input[@value='Login']")).
+			 * click();
+			 */
+		  
 	}
-
-	@Given("user navigates to dsportal/heroku.com")
-	public void gotoportal() {
-		DriverManager.getDriver().navigate().to("https://www.dsportalapp.herokuapp.com");
-	}
-
-	@When("Testing for username and password")
-	public void TestingForUsernameAndPassword(String arg1, String arg2) {
-		DriverManager.getDriver().findElement(By.linkText("Get Started")).click();
-		DriverManager.getDriver().findElement(By.linkText("Sign in")).click();
-		DriverManager.getDriver().findElement(By.id("id_username")).sendKeys("pam2024");
-		DriverManager.getDriver().findElement(By.id("id_password")).sendKeys("pwd@2024");
-		DriverManager.getDriver().findElement(By.xpath("/html/body/div[2]/div/div[2]/form/input[4]")).click();
-	}
-
-	@Then("if login is successful then navigating to homepage")
-	public void validatelogin() {
-		if (DriverManager.getDriver().getCurrentUrl().equalsIgnoreCase("https://dsportalapp.herokuapp.com/home")) {
-			System.out.println("Test Pass");
-		} else {
-			System.out.println("Test Failed");
-		}
-		
-		DriverManager.getDriver().close();
-	}
-
+	
 	@After
-	public void tearDown() {
-		DriverManager.getDriver().findElement(By.linkText("Logout")).click();
-		System.out.println("Logged out from the application");
-		System.out.println("Clearing browser cookies");
-		System.out.println("Close the browser");
-		
-		if (DriverManager.getDriver() != null) {
-			DriverManager.getDriver().quit();
-			System.out.println("Print the Reports");
-
+	public void tearDown(Scenario sc) {
+		DriverFactory.getDriver().navigate().back();
+		if(sc.isFailed()) {
+			 if (DriverFactory.getDriver() != null) {
+	                byte[] screenshot = ((TakesScreenshot) DriverFactory.getDriver()).getScreenshotAs(OutputType.BYTES);
+	                sc.attach(screenshot, "image/png", "Screenshot on failure");
+	            }
 		}
+		DriverFactory.getDriver().findElement(By.linkText("Sign out")).click();
+		System.out.println("Logged out from the application");	
+		DriverFactory.getDriver().quit();
 	}
-
-
+	
+	/*
+	 * @BeforeAll public static void before_or_after_all() {
+	 * System.out.println("Setup before all class"); }
+	 */
+	
+	
+	
 }
+ 
+
