@@ -2,8 +2,6 @@ Feature: DsAlgo Portal Tree Page
 
 Background:
 Given User is Logged into DSAlgo Portal
-Background:
-Given User is Logged into DSAlgo Portal
 When click on get started of Tree
 Then user should navigate to Tree implementation page
 

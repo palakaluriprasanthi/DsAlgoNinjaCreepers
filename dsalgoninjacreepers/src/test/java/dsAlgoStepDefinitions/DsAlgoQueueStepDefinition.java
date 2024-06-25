@@ -63,14 +63,14 @@ public class DsAlgoQueueStepDefinition {
 
 	@When("User enters the code and click on run button")
 	public void user_enters_the_code_and_click_on_run_button() {
-		dsAlgoTryEditorPage.enterInvalidCode();
+		dsAlgoTryEditorPage.enterValidCode();
 		dsAlgoTryEditorPage.Runtab.click();
 	}
 
 	@Then("verify the output")
 	public void verify_the_output() {
-		boolean isAlertPresent = dsAlgoTryEditorPage.checkAlertPresentAndAccept();
-		assertEquals(isAlertPresent, true);
+		String outPut = dsAlgoTryEditorPage.getOutputValue();
+		assertEquals(outPut, "hello");
 	}
 
 	@When("click on the Implementation of Collection deque")
