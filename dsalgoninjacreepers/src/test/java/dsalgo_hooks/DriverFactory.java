@@ -6,6 +6,7 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.safari.SafariDriver;
 
+import dsUtilities.ConfigReader;
 import dsalgo_hooks.Hooks;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
@@ -14,7 +15,9 @@ public class DriverFactory {
 	
 	public  static WebDriver driver;
 
-	public static WebDriver launchBrowser(String browserName, String siteUrl) {
+	public static WebDriver launchBrowser() {
+		ConfigReader.init_prop();
+		String browserName = ConfigReader.getBrowserType();
 
 		if (browserName.equalsIgnoreCase("Firefox")) {
 			System.out.println("Browser name is" + browserName);
@@ -38,10 +41,14 @@ public class DriverFactory {
 		
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
-		driver.get("https://dsportalapp.herokuapp.com");
+		driver.get(ConfigReader.getApplicationUrl());
 		System.out.println("Loaded the page sucessfully");
 		
 		return driver;
+	}
+	
+	public static void setDriver(WebDriver driver1) {
+		driver = driver1;
 	}
 	
 	public  static WebDriver getDriver() {

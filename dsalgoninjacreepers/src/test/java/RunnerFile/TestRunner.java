@@ -8,12 +8,11 @@ import io.cucumber.testng.CucumberOptions;
 //@RunWith(Cucumber.class) //Junit execution
 @CucumberOptions(
 plugin = {"pretty","html:target/dsalgo123.html","com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"}, //reporting purpose
-monochrome = true, //console output
+//monochrome = true, //console output
 dryRun = false,
-//tags = ("@tags,@tag1"), //tags from feature file
-features = {"src/test/resources/Features"}, //location of feature files
-glue = {"Steps_DsAlgo","ApplicationHooks"}) //location of step definition files
-
+tags = ("@tag,@tag1,@signin"), //tags from feature file
+features = {"src/test/resources/features"}, //location of feature files
+glue  = {"dsAlgoStepDefinitions","dsalgo_hooks"}) //location of step definition files
 public class TestRunner extends AbstractTestNGCucumberTests{
 	  @Override
 	  @DataProvider(parallel=false)

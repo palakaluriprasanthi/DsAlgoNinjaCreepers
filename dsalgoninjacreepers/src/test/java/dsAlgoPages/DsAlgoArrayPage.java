@@ -9,10 +9,11 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import dsUtilities.PropertyReader;
 import dsalgo_hooks.DriverFactory;
-
+import dsalgo_hooks.LoginDriverManager;
+import dsUtilities.commoncomponents;
 public class DsAlgoArrayPage {
 	public WebDriver driver = DriverFactory.getDriver();
-	//commoncomponents cc = new commoncomponents();
+	commoncomponents cc = new commoncomponents();
 	
 	//String tryEditorURL = ConfigReader.tryEditorURL();
 	String url = PropertyReader.getProperty("appURL");

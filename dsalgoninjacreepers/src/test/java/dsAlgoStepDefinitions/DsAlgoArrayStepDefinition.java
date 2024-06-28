@@ -7,7 +7,7 @@ import java.util.concurrent.TimeoutException;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 
 import dsAlgoPages.DsAlgoArrayPage;
-import dsUtilities.LoggerLoad;
+import dsUtilities.LoaderLoad;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -41,7 +41,7 @@ public void the_user_is_on_the_after_logged_in(String pagename) {
 
 @When("The user select Array item from the drop down menu")
 public void the_user_select_array_item_from_the_drop_down_menu()throws TimeoutException, InterruptedException {
-	LoggerLoad.info("The user select Array item from the drop down menu");
+	LoaderLoad.info("The user select Array item from the drop down menu");
 	arraypage.dropdown_arrayClick();
 	Thread.sleep(2000);
 }
@@ -49,10 +49,10 @@ public void the_user_select_array_item_from_the_drop_down_menu()throws TimeoutEx
 @Then("The user be directed to {string} Data Structure Page")
 public void the_user_be_directed_to_data_structure_page(String  pagename)throws TimeoutException {
 	
-	LoggerLoad.info("User redirected to " + pagename + " Page ");
+	LoaderLoad.info("User redirected to " + pagename + " Page ");
 
 	String Title = arraypage.ArrayPageTitle();
-	LoggerLoad.info("Title of current page is : " + Title);
+	LoaderLoad.info("Title of current page is : " + Title);
 
 	//assertEquals(Title, pagename, "Title do not match");
 //Thread.sleep(200);
@@ -68,9 +68,9 @@ public void the_user_clicks_arrays_in_python_link() {
 @Then("The user should be redirected to {string} page")
 public void the_user_should_be_redirected_to_page(String pagename) {
 	
-	LoggerLoad.info("User redirected to " + pagename + " Page ");
+	LoaderLoad.info("User redirected to " + pagename + " Page ");
 	String Title = arraypage.ArrayPageTitle();
-	LoggerLoad.info("Title of current page is : " + Title);
+	LoaderLoad.info("Title of current page is : " + Title);
 	//assertEquals(Title, pagename, "Title do not match");
 }
 // @TS_array_04
@@ -85,9 +85,9 @@ public void the_user_clicks_button_on_page(String btname, String destname) throw
 public void the_user_should_be_redirected_to_a_page_having_an_try_editor_with_a_run_button_to_test() {
 	
 	
-	LoggerLoad.info("User redirected to a page having an tryEditor with a Run button to test");
+	LoaderLoad.info("User redirected to a page having an tryEditor with a Run button to test");
 	String Title = arraypage.ArrayPageTitle();
-	LoggerLoad.info("Title of current page is : " + Title);
+	LoaderLoad.info("Title of current page is : " + Title);
 	assertEquals(Title, "Assessment", "Title do not match");
    
 }
@@ -96,10 +96,10 @@ public void the_user_should_be_redirected_to_a_page_having_an_try_editor_with_a_
 @Given("The user is in a page having an tryEditor with a Run button to test")
 public void the_user_is_in_a_page_having_an_try_editor_with_a_run_button_to_test() {
    
-	LoggerLoad.info("The user is in a page having an tryEditor with a Run button to test");
+	LoaderLoad.info("The user is in a page having an tryEditor with a Run button to test");
 	arraypage.navigateTotryEditor();
 	String Title = arraypage.ArrayPageTitle();
-	LoggerLoad.info("Title of current page is : " + Title);
+	LoaderLoad.info("Title of current page is : " + Title);
 	
 
 	
@@ -108,7 +108,7 @@ public void the_user_is_in_a_page_having_an_try_editor_with_a_run_button_to_test
 @When("The user enter valid python code in tryEditor from sheet {string} and {int}")
 public void the_user_enter_valid_python_code_in_try_editor_from_sheet_and(String sheetname, Integer rownumber) throws InvalidFormatException, IOException {
 	
-	LoggerLoad.info("The user enter valid python code in tryEditor from sheetname :" + sheetname
+	LoaderLoad.info("The user enter valid python code in tryEditor from sheetname :" + sheetname
 			+ " and row number : " + rownumber);
 	arraypage.enterPythonCode(sheetname, rownumber);
 	//expectedMsg = arraypage.getExpectedResult(sheetname, rownumber);
@@ -123,7 +123,7 @@ public void the_user_clicks_on_run_button() {
 @Then("The user should be presented with Run result")
 public void the_user_should_be_presented_with_run_result() {
 	String actualMsg = arraypage.getActualResult();
-	LoggerLoad.info("Actual result  : " + actualMsg);
+	LoaderLoad.info("Actual result  : " + actualMsg);
 	assertEquals(actualMsg, expectedMsg, "Result do not match");
     
 }
@@ -132,7 +132,7 @@ public void the_user_should_be_presented_with_run_result() {
 @When("The user enter python code with invalid syntax in tryEditor from sheet {string} and {int}")
 public void the_user_enter_python_code_with_invalid_syntax_in_try_editor_from_sheet_and(String  sheetname, Integer rownumber) throws InvalidFormatException, IOException {
 	
-	LoggerLoad.info("The user enter valid python code in tryEditor from sheetname :" + sheetname
+	LoaderLoad.info("The user enter valid python code in tryEditor from sheetname :" + sheetname
 			+ " and row number : " + rownumber);
 	arraypage.enterPythonCode(sheetname, rownumber);
 
@@ -141,7 +141,7 @@ public void the_user_enter_python_code_with_invalid_syntax_in_try_editor_from_sh
 @Then("The user should be presented with error message as {string}")
 public void the_user_should_be_presented_with_error_message_as(String string) {
 	String actualMsg = arraypage.getErrorText();
-	LoggerLoad.info("Actual Error message is  : " + actualMsg);
+	LoaderLoad.info("Actual Error message is  : " + actualMsg);
 	assertEquals(actualMsg,"NameError: name 'hello' is not defined on line 1", "Result do not match");
 }
 @Then("The user clicks on back button")

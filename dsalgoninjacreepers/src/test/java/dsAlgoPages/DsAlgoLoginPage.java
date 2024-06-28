@@ -10,38 +10,31 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import dsalgo_hooks.LoginDriverManager;
+import dsUtilities.ConfigReader;
+
 public class DsAlgoLoginPage {
 
-	public WebDriver driver;
+	public  WebDriver driver ;
 	public static WebDriverWait wait;
 	boolean isRequired;
 	
-	@FindBy(xpath = "//a[@href='/home']")
-	public WebElement getStarted;
+	@FindBy(xpath = "/html/body/div[1]/div/div/a")public WebElement getStarted;
 	
-	@FindBy(linkText = "Sign in")
+	
+	@FindBy(linkText = "//*[@id=\"navbarCollapse\"]/div[2]/ul/a[3]")
 	public WebElement signIn;
 	
-	@FindBy(xpath = "//input[@id='id_username']")
-	public WebElement user;
-	
-	@FindBy(xpath = "//input[@id='id_password']")
-	public WebElement pwd;
-	
-	@FindBy(xpath = "//input[@value='Login']")
-	public WebElement login_button;
-	
-	@FindBy(xpath = "//div[@class='alert alert-primary']")
-	public WebElement alert;
-	
-	@FindBy(xpath = "/html/body/div[2]/div/div[2]/a")
-	public WebElement register;
-	
-	@FindBy(xpath = "//*[@id=\"navbarCollapse\"]/div[2]/ul/a[3]")
-	public WebElement signout;
+	@FindBy (xpath="//*[@id=\"id_username\"]") static WebElement user;
+	@FindBy (xpath="//*[@id=\"id_password\"]") static WebElement pwd;
+	@FindBy (xpath="/html/body/div[2]/div/div[2]/form/input[4]") WebElement login_button;
+	@FindBy (xpath="//div[@class='alert alert-primary']") WebElement alert;
+	@FindBy (xpath="/html/body/div[2]/div/div[2]/a")  WebElement register;
+	@FindBy (xpath="//*[@id=\"navbarCollapse\"]/div[2]/ul/a[3]")  WebElement signout;
 
 	public  DsAlgoLoginPage(WebDriver driver) {
 		this.driver = driver;
+		driver.get(ConfigReader.getLoginPage());
 		PageFactory.initElements(driver, this);
 	}
 
@@ -65,31 +58,35 @@ public class DsAlgoLoginPage {
 	}
 
 	public void login_button() {
+
 		login_button.click();
-	}
 
-	public String click_login() {
-		login_button.click();
-		String msg = alert.getText();
-		return msg;
 	}
+	// login for excel sheet data
+			public String click_login() {
 
-	public void register_link() {
-		register.click();
-	}
+				login_button.click();
+				String msg = alert.getText();
+				return msg;
+			}
+			public String register_link() {
 
-	public String getTitle() {
-		String Title = driver.getTitle();
-		return Title;
-	}
+				register.click();
+				return null;
+			}
 
-	public void signout() {
-		signout.click();
-	}
+			public String register_page() {
 
-	public void waitForElementToappear(WebElement user) {
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(1000));
-		wait.until(ExpectedConditions.visibilityOf(user));
-	}
+				String Title = driver.getTitle();
+				return Title;
+			}
 
+			public void  signout() {
+				
+				signout.click();
+			}
+			public void waitForElementToappear(WebElement user){
+				WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(1000));
+				wait.until(ExpectedConditions.visibilityOf(user));
+			}
 }

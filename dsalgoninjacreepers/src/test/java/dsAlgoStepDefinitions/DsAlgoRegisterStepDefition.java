@@ -3,7 +3,7 @@ import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
 import dsAlgoPages.DsAlgoRegisterPage;
-import dsUtilities.LoggerLoad;
+import dsUtilities.LoaderLoad;
 import dsalgo_hooks.DriverFactory;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -20,7 +20,7 @@ public class DsAlgoRegisterStepDefition {
 	@Given("The user opens Register Page")
 	public void the_user_opens_register_page() throws InterruptedException {
 		
-		LoggerLoad.info("The user opens Register Page");
+		LoaderLoad.info("The user opens Register Page");
 		
 		register.navigatetoRegisterPage();
 		//Thread.sleep(200);
@@ -28,14 +28,14 @@ public class DsAlgoRegisterStepDefition {
 
 	@When("The user clicks {string} button with all fields empty")
 	public void the_user_clicks_button_with_all_fields_empty(String string) throws InterruptedException {
-		LoggerLoad.info("The user do not enter any values");
+		LoaderLoad.info("The user do not enter any values");
 		register.clickOnRegisterButton();
 		//Thread.sleep(200);
 	}
 
 	@Then("It should display an error message {string} below Username textbox")
 	public void it_should_display_an_error_message_below_username_textbox(String string) {
-		LoggerLoad.info("Error message is displayed " + register.getEmptyfieldErrormsgUser()
+		LoaderLoad.info("Error message is displayed " + register.getEmptyfieldErrormsgUser()
 		+ " an error below Username textbox");
 		//assertTrue(register.EmptyRequiredUser(), "Username Field is Empty - required attribute is validated");
 		//assertEquals(register.getEmptyfieldErrormsgUser(), expErrormsg);
@@ -43,7 +43,7 @@ public class DsAlgoRegisterStepDefition {
 
 	@When("The user clicks {string} button after entering username with other fields empty")
 	public void the_user_clicks_button_after_entering_username_with_other_fields_empty(String string, io.cucumber.datatable.DataTable dataTable) throws InterruptedException {
-LoggerLoad.info("The user enter valid username with other fields empty");
+LoaderLoad.info("The user enter valid username with other fields empty");
 		
 		register.entervalidUsername(dataTable);
 		register.clickOnRegisterButton();
@@ -52,7 +52,7 @@ LoggerLoad.info("The user enter valid username with other fields empty");
 
 	@Then("It should display an error message {string} below Password textbox")
 	public void it_should_display_an_error_message_below_password_textbox(String string) {
-		LoggerLoad.info("Error message is displayed " + register.getEmptyfieldErrormsgCofmPswd()
+		LoaderLoad.info("Error message is displayed " + register.getEmptyfieldErrormsgCofmPswd()
 		+ " an error below Password textbox");
 	//	assertTrue(register.EmptyRequiredPswd(), "Username Field is Empty - required attribute is validated");
 		//assertEquals(register.getEmptyfieldErrormsgPswd(), expErrormsg);
@@ -67,7 +67,7 @@ LoggerLoad.info("The user enter valid username with other fields empty");
 
 	@Then("It should display an error message {string} below Password Confirmation textbox")
 	public void it_should_display_an_error_message_below_password_confirmation_textbox(String string) {
-		LoggerLoad.info("Error message is displayed " + register.getEmptyfieldErrormsgCofmPswd()
+		LoaderLoad.info("Error message is displayed " + register.getEmptyfieldErrormsgCofmPswd()
 		+ " an error below Username textbox");
 		//assertTrue(register.getEmptyRequiredCofmPswd(), "Username Field is Empty - required attribute is validated");
 		//assertEquals(register.getEmptyfieldErrormsgCofmPswd(), expErrormsg);

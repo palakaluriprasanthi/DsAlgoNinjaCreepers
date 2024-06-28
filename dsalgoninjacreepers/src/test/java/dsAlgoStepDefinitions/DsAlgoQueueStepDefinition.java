@@ -24,8 +24,8 @@ public class DsAlgoQueueStepDefinition {
 	public void User_is_Logged_into_DSAlgo_Portal() {
 		loginPage.getStarted.click();
 		loginPage.signIn.click();
-		loginPage.user.sendKeys("pam2024");
-		loginPage.pwd.sendKeys("pwd@2024");
+		//loginPage.user.sendKeys("pam2024");
+		//loginPage.pwd.sendKeys("pwd@2024");
 		loginPage.login_button();
 	}
 	

@@ -8,9 +8,10 @@ import java.util.Map;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.support.PageFactory;
-import dsUtilities.LoggerLoad;
+import dsUtilities.LoaderLoad;
 import dsUtilities.PropertyReader;
 import io.cucumber.datatable.DataTable;
+
 
 public class DsAlgoRegisterPage {
 
@@ -38,7 +39,7 @@ public class DsAlgoRegisterPage {
 	}
 
 	public void clickOnRegisterButton() {
-		LoggerLoad.info("The user clicks on Register button");
+		LoaderLoad.info("The user clicks on Register button");
 		registerButton.click();
 	}
 
@@ -121,7 +122,7 @@ public class DsAlgoRegisterPage {
 		try {
 			msg = errorMsg.getText();
 		} catch (NoSuchElementException e) {
-			LoggerLoad.info("No such element");
+			LoaderLoad.info("No such element");
 		}
 		return msg;
 
@@ -143,7 +144,7 @@ public class DsAlgoRegisterPage {
 		for (Map<String, String> form : userdetail) {
 
 			String userName = form.get("username");
-			LoggerLoad.info("The user enter username as : " + userName);
+			LoaderLoad.info("The user enter username as : " + userName);
 			if (userName != null && !userName.isEmpty())
 				user.sendKeys(userName);
 
@@ -156,7 +157,7 @@ public class DsAlgoRegisterPage {
 		for (Map<String, String> form : userdetail) {
 
 			String passwd = form.get("password");
-			LoggerLoad.info("The user enter password as : " + passwd);
+			LoaderLoad.info("The user enter password as : " + passwd);
 			if (passwd != null && !passwd.isEmpty())
 				pwd.sendKeys(passwd);
 
@@ -169,7 +170,7 @@ public class DsAlgoRegisterPage {
 		for (Map<String, String> form : userdetail) {
 
 			String cpasswd = form.get("password confirmation");
-			LoggerLoad.info("The user enter confirm password as : " + cpasswd);
+			LoaderLoad.info("The user enter confirm password as : " + cpasswd);
 			if (cpasswd != null && !cpasswd.isEmpty())
 				confirmpwd.sendKeys(cpasswd);
 

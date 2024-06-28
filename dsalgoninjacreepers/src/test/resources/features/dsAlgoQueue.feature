@@ -3,10 +3,10 @@
 
 Feature: DsAlgo Portal Queue Page
 
-Background:
-Given User is Logged into DSAlgo Portal
-When click on get started of Queue
-Then user should navigate to Queue implementation page
+#Background:
+#Given User is Logged into DSAlgo Portal
+#When click on get started of Queue
+#Then user should navigate to Queue implementation page
 
   Scenario: Implementation of Queue in Python 
    When click on the Implementation of Queue in Python
