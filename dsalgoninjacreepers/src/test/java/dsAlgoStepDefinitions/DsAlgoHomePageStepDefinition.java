@@ -10,6 +10,7 @@ import dsalgo_hooks.DriverFactory;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import dsUtilities.ConfigReader;
 
 public class DsAlgoHomePageStepDefinition {
 
@@ -40,11 +41,12 @@ public class DsAlgoHomePageStepDefinition {
 	@Given("The user is on Home page")
 	public void the_user_is_on_home_page() {
 		LoaderLoad.info("User is on Home page");
+	//	home.homepage();
 	}
 
 	// user click Getstarted link on home page
 	@When("The user clicks on Get Started link on homepage {string} without login")
-	public void the_user_clicks_on_get_started_link_on_homepage_without_login(String string) {
+	public void the_user_clicks_on_get_started_link_on_homepage_without_login(String string) throws InterruptedException {
 		home.getStarted_home(string);
 	}
 

@@ -1,11 +1,8 @@
 @array
 Feature: User launch dsalgo application and test Array page
-
-Background:
-	Given User is Logged into DSAlgo Portal
 	
   @Before(@TS_array_02)
-  Scenario: The user is logged in to DS Algo portal
+  Scenario: The user is logged in to DS1 Algo portal1
     Given The user is on signin page
     When The user enter sheet "Sheet1" and 2
     #When The user is logged in with valid username "pam2024" and password "pwd@2024"

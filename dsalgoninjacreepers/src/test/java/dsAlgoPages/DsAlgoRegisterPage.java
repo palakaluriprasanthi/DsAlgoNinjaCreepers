@@ -9,33 +9,31 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.support.PageFactory;
 import dsUtilities.LoaderLoad;
-import dsUtilities.PropertyReader;
+import dsUtilities.ConfigReader;
 import io.cucumber.datatable.DataTable;
 
 
 public class DsAlgoRegisterPage {
 
 	public static WebDriver driver;
-	String register = PropertyReader.getProperty("appURL");
+	String register = ConfigReader.registerPageURL();
 
-	@FindBy(xpath = "//[@href='/register']")
-	public WebElement registerButton;
-	@FindBy(xpath = "//*[@id=\"id_username\"]")
-	public WebElement user;
-	@FindBy(xpath = "//*[@id=\"id_password1\"]")
-	public WebElement pwd;
-	@FindBy(xpath = "//*[@id=\"id_password2\"]")
-	public WebElement confirmpwd;
-	@FindBy(xpath = "/html/body/div[3]")
-	WebElement errorMsg;
+	@FindBy (xpath = "/html/body/div[2]/div/div[2]/form/input[5]")WebElement registerButton;
+	@FindBy (xpath = "//*[@id=\"id_username\"]") WebElement user;
+	@FindBy (xpath="//*[@id=\"id_password1\"]") WebElement pwd;
+	@FindBy (xpath="//*[@id=\"id_password2\"]") WebElement confirmpwd;
+	@FindBy (xpath="/html/body/div[3]") WebElement errorMsg;
 	
 	public DsAlgoRegisterPage(WebDriver driver) {
 		this.driver=driver;
-		PageFactory.initElements(driver, this);
+		//PageFactory.initElements(driver, this);
 	}
 
 	public void navigatetoRegisterPage() {
 		driver.get(register);
+		
+		PageFactory.initElements(driver, this);
+
 	}
 
 	public void clickOnRegisterButton() {

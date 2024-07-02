@@ -1,8 +1,8 @@
 @Register
 Feature: User validates Register page
 
-Background:
-Given User is Logged into DSAlgo Portal
+#Background:
+#Given User is Logged into DSAlgo Portal
   @Testcase01
   Scenario: User launch home page of an dsalgo
      Given The user opens DS Algo portal link

@@ -65,7 +65,7 @@ public class Hooks {
 	
 	@After
 	public void tearDown(Scenario sc) {
-		DriverFactory.getDriver().navigate().back();
+		//DriverFactory.getDriver().navigate().back();
 		if(sc.isFailed()) {
 			 if (DriverFactory.getDriver() != null) {
 	                byte[] screenshot = ((TakesScreenshot) DriverFactory.getDriver()).getScreenshotAs(OutputType.BYTES);

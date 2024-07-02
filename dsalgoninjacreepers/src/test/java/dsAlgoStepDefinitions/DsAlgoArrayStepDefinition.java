@@ -17,7 +17,7 @@ public class DsAlgoArrayStepDefinition {
 	
 DsAlgoArrayPage arraypage = new DsAlgoArrayPage();
 //String Excelpath = ConfigReader.getexcelfilepath();
-String Excelpath = System.getProperty("user.dir")+"/src/test/resources/TestData/Demo.xlsx";
+String Excelpath = System.getProperty("user.dir")+"/src/test/resources/TestData/testData.xlsx";
 static String expectedMsg;
 
 @Given("The user is on Signin page of DS Algo portal")

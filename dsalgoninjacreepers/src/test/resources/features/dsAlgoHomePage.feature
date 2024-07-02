@@ -1,7 +1,7 @@
 @Homepage
 Feature: User launch dsalgo application and test Home page
-Background:
-Given User is Logged into DSAlgo Portal
+#Background:
+#Given User is Logged into DSAlgo Portal
 
   @home_pageTS-01
   Scenario: User launch home page of an dsalgo project

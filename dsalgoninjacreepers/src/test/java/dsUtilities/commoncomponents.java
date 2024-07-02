@@ -14,13 +14,14 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import dsUtilities.ExcelReader;
 import dsUtilities.ConfigReader;
+import dsalgo_hooks.DriverFactory;
 import dsalgo_hooks.DriverManager;
 
 
 public class commoncomponents {
 	//public static WebDriver driver;
 	public static WebDriver wait;
-	public static WebDriver driver = DriverManager.getDriver();
+	public static WebDriver driver = DriverFactory.getDriver();
 	String Excelpath = ConfigReader.getexcelfilepath();
 	String code;
 	String result;

@@ -7,6 +7,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import dsUtilities.ConfigReader;
 import dsUtilities.PropertyReader;
 import dsalgo_hooks.DriverFactory;
 import dsalgo_hooks.LoginDriverManager;
@@ -16,7 +18,7 @@ public class DsAlgoArrayPage {
 	commoncomponents cc = new commoncomponents();
 	
 	//String tryEditorURL = ConfigReader.tryEditorURL();
-	String url = PropertyReader.getProperty("appURL");
+	String url = ConfigReader.getApplicationUrl();
 	
 	@FindBy (xpath="//*[@id=\\\"navbarCollapse\\\"]/div[1]/div/a")WebElement getstart_datastructures;
 	@FindBy (xpath="//*[@href='array']")WebElement getstart_array;
@@ -86,7 +88,7 @@ public class DsAlgoArrayPage {
 
 	public void navigateTotryEditor() {
 
-		//driver.get(tryEditorURL);
+		driver.get(ConfigReader.tryEditorURL());
 		PageFactory.initElements(driver, this);
 
 	}
@@ -103,8 +105,8 @@ public class DsAlgoArrayPage {
 	}
 	public void navigateTo(String pagename) {
 		
-		//String urlName = ConfigReader.geturl(pagename);
-		driver.get(url);
+		String urlName = ConfigReader.geturl(pagename);
+		driver.get(urlName);
 
 		
 	}
