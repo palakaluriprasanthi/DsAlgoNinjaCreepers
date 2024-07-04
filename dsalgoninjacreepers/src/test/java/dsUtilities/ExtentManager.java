@@ -8,9 +8,9 @@ import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import com.aventstack.extentreports.reporter.configuration.Theme;
 
 public class ExtentManager {
-	
+
 static ExtentReports extent; 
-	
+
 	public static void extentTest() throws IOException {
 		extent = new ExtentReports();
 		final File CONF = new File(System.getProperty("user.dir")+"/src/test/resources/Configuration_files/extent-config.xml");
@@ -21,7 +21,7 @@ static ExtentReports extent;
 		spark.config().setReportName("DSALGO Extent Report");
 		extent.attachReporter(spark);
 	}
-	
+
 	public static void endReport() {
 		extent.flush();
 	}

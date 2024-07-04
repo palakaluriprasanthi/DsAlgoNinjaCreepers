@@ -1,5 +1,4 @@
 package dsUtilities;
-
 import org.testng.IRetryAnalyzer;
 import org.testng.ITestResult;
 
@@ -11,7 +10,7 @@ public class Retry implements IRetryAnalyzer {
     @Override
     public boolean retry(ITestResult iTestResult) {
         int maxRetry = 4; // Total Execution of TC = Max Retry + 1
-        
+
         if (!iTestResult.isSuccess()) {                     //Check if test not succeed
             if (count <= maxRetry) {                           
                 count++;                                    

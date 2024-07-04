@@ -2,7 +2,7 @@ package dsAlgoStepDefinitions;
 
 //import static org.testng.Assert.assertEquals;
 
-import org.apache.logging.log4j.Logger;
+
 
 import dsAlgoPages.DsAlgoHomepage;
 import dsUtilities.LoggerLoad;
@@ -10,6 +10,7 @@ import dsalgo_hooks.DriverFactory;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+
 
 public class DsAlgoHomePageStepDefinition {
 
@@ -33,7 +34,7 @@ public class DsAlgoHomePageStepDefinition {
 		String Title = home.getPageTitle();
 		LoggerLoad.info("Title of current page is ***** " + Title + " ****");
 		// assertEquals(Title, "NumpyNinja", "Title do not match");
-
+		DriverFactory.driver.quit();
 	}
 
 	// The user tried to access link - click without login in home page
@@ -53,7 +54,7 @@ public class DsAlgoHomePageStepDefinition {
 		String alert = home.alert();
 		LoggerLoad.info("Actual Message : " + alert);
 		// assertEquals(alert, string, "Title do not match");
-
+		DriverFactory.driver.quit();
 	}
 
 	// User clicks drop down
@@ -78,7 +79,7 @@ public class DsAlgoHomePageStepDefinition {
 		String Title = home.getTitle();
 		LoggerLoad.info("Title of current page is : " + Title);
 		// assertEquals(Title, "Login", "Title do not match");
-
+		DriverFactory.driver.quit();
 	}
 
 	// USer click on Register
@@ -93,7 +94,7 @@ public class DsAlgoHomePageStepDefinition {
 		String Title = home.register_page();
 		LoggerLoad.info("Title of current page is : " + Title);
 		// assertEquals(Title, "Registration", "Title do not match");
-
+		DriverFactory.driver.quit();
 	}
 
 }

@@ -29,7 +29,7 @@ public class Hooks {
 	
 	@Before()
 	public void setUp() {
-		String browser = "Edge";
+		String browser = "Chrome";
 		  String url = "https://dsportalapp.herokuapp.com";
 		  DriverFactory.launchBrowser(browser, url);
 			/*

@@ -84,7 +84,7 @@ public class DsAlgoLoginStepDeifinition {
      LoggerLoad.info("Expected Message - Excel Sheet :  " + message);
     String msg =login.click_login();
      LoggerLoad.info("Actual message : "+msg);
-     Thread.sleep(2000);
+//     Thread.sleep(2000);
     // assertEquals(msg,message);
  
  }

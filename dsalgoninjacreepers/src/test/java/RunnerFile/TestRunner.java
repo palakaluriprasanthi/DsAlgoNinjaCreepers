@@ -11,8 +11,8 @@ plugin = {"pretty","html:target/dsalgo123.html","com.aventstack.extentreports.cu
 monochrome = true, //console output
 dryRun = false,
 //tags = ("@tags,@tag1"), //tags from feature file
-features = {"src/test/resources/Features"}, //location of feature files
-glue = {"Steps_DsAlgo","ApplicationHooks"}) //location of step definition files
+features = {"src/test/resources/features"}, //location of feature files
+glue = {"dsAlgoStepDefinitions","dsalgo_hooks"}) //location of step definition files
 
 public class TestRunner extends AbstractTestNGCucumberTests{
 	  @Override
@@ -29,6 +29,6 @@ public class TestRunner extends AbstractTestNGCucumberTests{
 		ConfigReader.setBrowserType(browser);
 	}*/
 
-	
+
 
 }

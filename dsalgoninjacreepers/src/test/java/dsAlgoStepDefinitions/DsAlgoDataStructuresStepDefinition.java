@@ -1,10 +1,10 @@
 package dsAlgoStepDefinitions;
-
 import static org.testng.Assert.assertEquals;
 
 import dsAlgoPages.DsAlgoDataStructurePage;
 import dsAlgoPages.DsAlgoTryEditorPage;
 import dsalgo_hooks.DriverFactory;
+
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -12,7 +12,7 @@ import io.cucumber.java.en.When;
 
 
 public class DsAlgoDataStructuresStepDefinition {
-	
+
 	DsAlgoDataStructurePage dsAlgoDataStructurePage = new DsAlgoDataStructurePage(DriverFactory.getDriver());  
 	DsAlgoTryEditorPage dsAlgoTryEditorPage = new DsAlgoTryEditorPage(DriverFactory.getDriver());
 
@@ -45,7 +45,7 @@ public class DsAlgoDataStructuresStepDefinition {
 		dsAlgoTryEditorPage.Runtab.click();
 		boolean isAlertPresent = dsAlgoTryEditorPage.checkAlertPresentAndAccept();
 		assertEquals(isAlertPresent, true);
-		
+
 	}
-	
+
 }

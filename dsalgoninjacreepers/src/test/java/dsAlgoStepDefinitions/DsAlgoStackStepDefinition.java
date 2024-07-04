@@ -1,16 +1,15 @@
 package dsAlgoStepDefinitions;
-
 import static org.testng.Assert.assertEquals;
 
-import org.openqa.selenium.By;
+
 import dsalgo_hooks.DriverFactory;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
+
+
+
 
 import dsAlgoPages.DsAlgoStackPage;
 import dsAlgoPages.DsAlgoTryEditorPage;
-import io.cucumber.java.After;
-import io.cucumber.java.Before;
+
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -18,6 +17,7 @@ import io.cucumber.java.en.When;
 
 
 public class DsAlgoStackStepDefinition {
+	
 
 	DsAlgoStackPage dsAlgoStackPage = new DsAlgoStackPage(DriverFactory.getDriver());
 	DsAlgoTryEditorPage dsAlgoTryEditorPage = new DsAlgoTryEditorPage(DriverFactory.getDriver());
@@ -44,7 +44,7 @@ public class DsAlgoStackStepDefinition {
 		String outPut = dsAlgoTryEditorPage.getOutputValue();
 		assertEquals(outPut, "hello");
 	}
-	
+
 	@Then("Try invalid code")
 	public void try_invalid_code() {
 		dsAlgoTryEditorPage.enterInvalidCode();
@@ -64,3 +64,4 @@ public class DsAlgoStackStepDefinition {
 	}
 
 }
+

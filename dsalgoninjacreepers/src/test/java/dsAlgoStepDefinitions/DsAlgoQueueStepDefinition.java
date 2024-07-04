@@ -4,7 +4,7 @@ import static org.testng.Assert.assertEquals;
 
 import org.openqa.selenium.By;
 
-import com.aventstack.extentreports.util.Assert;
+
 
 import dsAlgoPages.DsAlgoQueuePage;
 import dsAlgoPages.DsAlgoTryEditorPage;
@@ -15,11 +15,11 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 public class DsAlgoQueueStepDefinition {
-	
+
 	DsAlgoQueuePage dsAlgoQueuePage = new DsAlgoQueuePage(DriverFactory.getDriver());
 	DsAlgoTryEditorPage dsAlgoTryEditorPage = new DsAlgoTryEditorPage(DriverFactory.getDriver());
 	DsAlgoLoginPage loginPage = new DsAlgoLoginPage(DriverFactory.getDriver());
-	
+
 	@Given("User is Logged into DSAlgo Portal")
 	public void User_is_Logged_into_DSAlgo_Portal() {
 		loginPage.getStarted.click();
@@ -28,7 +28,7 @@ public class DsAlgoQueueStepDefinition {
 		loginPage.pwd.sendKeys("pwd@2024");
 		loginPage.login_button();
 	}
-	
+
 	@When("click on get started of Queue")
 	public void click_on_get_started_of_queue() {
 		DriverFactory.getDriver().findElement(By.xpath("//a[@href='queue']")).click(); 
@@ -53,7 +53,7 @@ public class DsAlgoQueueStepDefinition {
 	@When("Click on Try here")
 	public void click_on_try_here() {
 	  dsAlgoQueuePage.TryHere.click();
-	  
+
 	}
 
 	@Then("User should navigate to Try Editor page")
@@ -105,5 +105,11 @@ public class DsAlgoQueueStepDefinition {
 		String Header = dsAlgoQueuePage.QueueOperationsHeader.getText();
 		assertEquals(Header, "Queue Operations");
 	}
+	@When ("User enter the invalid code and click on run button")
+	public void writes_invalid_code() {
+		dsAlgoTryEditorPage.enterValidCode();
+		dsAlgoTryEditorPage.Runtab.click();
+	}
 
 }
+	

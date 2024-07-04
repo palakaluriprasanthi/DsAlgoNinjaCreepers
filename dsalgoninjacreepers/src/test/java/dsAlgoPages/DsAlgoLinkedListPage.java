@@ -9,7 +9,7 @@ public class DsAlgoLinkedListPage {
 
 	public WebDriver driver;
 
-	public @FindBy(xpath="//a[@href='data-structures-introduction']")
+	public @FindBy(xpath="/html/body/div[3]/div[3]/div/div/a")
 	WebElement Linkedlist_GetStarted;
 
 	public @FindBy(xpath="//a[@href='introduction']")

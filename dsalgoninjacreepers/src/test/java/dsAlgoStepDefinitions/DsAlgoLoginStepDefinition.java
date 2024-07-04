@@ -1,82 +1,50 @@
 package dsAlgoStepDefinitions;
 
+import java.util.concurrent.TimeUnit;
+
 import org.openqa.selenium.By;
-import dsalgo_hooks.DriverFactory;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-public class DsAlgoLoginStepDefinition extends DriverFactory{
+
+public class DsAlgoLoginStepDefinition{
+		public static WebDriver driver;
+	@Given("^User is on Home Page$")
+	public void user_is_on_Home_Page() throws Throwable {
+		driver = new ChromeDriver();
+	    driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+	    driver.get("https://dsportalapp.herokuapp.com/");
+	}
+
+	@When("^User Navigate to LogIn Page$")
+	public void user_Navigate_to_LogIn_Page() throws Throwable {
+		driver.findElement(By.xpath("\"//a[@href='/home']\"")).click();
+	}
 	
-	@Given("user clicks on GetStarted")
-	public void user_clicks_on_get_started() {
-	    getDriver().findElement(By.xpath("//button[text()='Get Started']")).click();
+	@When("^User enters UserName and Password$")
+	public void user_enters_UserName_and_Password() throws Throwable {
+		driver.findElement(By.linkText("Sign in")).click();
+		driver.findElement(By.xpath("//*[@id=\"id_username\"]")).sendKeys("pam2024"); 	 
+	    driver.findElement(By.xpath("//*[@id=\"id_password\"]")).sendKeys("pwd@2024");
+	    driver.findElement(By.linkText("Login")).click();
 	}
 
-	@Given("clicks on Signin")
-	public void clicks_on_signin() {
-	    getDriver().findElement(By.linkText("Sign in")).click();
+	@Then("^Message displayed Login Successfully$")
+	public void message_displayed_Login_Successfully() throws Throwable {
+		System.out.println("Login Successfully");
 	}
 
-	@When("user enters the username and password")
-	public void user_enters_the_username_and_password() {
-		 getDriver().findElement(By.id("id_username")).sendKeys("pam2024");
-		 getDriver().findElement(By.id("id_password")).sendKeys("pwd@2024");
+	@When("^User LogOut from the Application$")
+	public void user_LogOut_from_the_Application() throws Throwable {
+		driver.findElement (By.xpath("//*[@id=\"navbarCollapse\"]/div[2]/ul/a[3]")).click();
 	}
 
-	@Then("click on login button")
-	public void click_on_login_button() throws InterruptedException {
-		getDriver().findElement(By.xpath("//input[@value='Login']")).click();
-		System.out.println("4 nd step");
-		getDriver().findElement(By.linkText("Get Started")).click();
-		getDriver().findElement(By.linkText("Time Complexity")).click();
-		getDriver().findElement(By.linkText("Try here>>>")).click();
-		getDriver().findElement(By.xpath("//textarea[@tabindex='0']")).sendKeys("hello");
-		Thread.sleep(5000);
-		getDriver().navigate().back();
+	@Then("^Message displayed LogOut Successfully$")
+	public void message_displayed_LogOut_Successfully() throws Throwable {
+		System.out.println("LogOut Successfully");
 	}
-
-
-	/*
-	 * @Given("Go to linkled list box ,click on get started") public void
-	 * go_to_linkled_list_box_click_on_get_started() {
-	 * 
-	 * obj.LinkedListIntro(); }
-	 * 
-	 * @And("click on Introduction") public void click_on_introduction() {
-	 * obj.IntroductionMethod();
-	 * 
-	 * }
-	 * 
-	 * @When("click on the tab try here") public void TryHere() { obj.TryMethod(); }
-	 * 
-	 * @Then("Write and Run the code") public void WriteAndExecute() {
-	 * obj.TextMethod(); obj.RunMethod(); }
-	 * 
-	 * @Given("click on creating linked list") public void
-	 * click_on_creating_linked_list() { obj.CreatingLinkedlistMethod();
-	 * obj.TryMethod(); obj.TextMethod(); obj.RunMethod(); }
-	 * 
-	 * 
-	 * 
-	 * 
-	 * @Given("click on Types of linked list") public void
-	 * click_on_types_of_linked_list() { obj.TypesMethod(); obj.TryMethod();
-	 * obj.TextMethod(); obj.RunMethod(); }
-	 * 
-	 * @And("click on Implement") public void click_on_implement() {
-	 * obj.ImplementLinkedlistMethod(); obj.TryMethod(); obj.TextMethod();
-	 * obj.RunMethod(); }
-	 * 
-	 * @Given("click on Traversal") public void click_on_traversal() {
-	 * obj.TraverseMethod(); obj.TryMethod(); obj.TextMethod(); obj.RunMethod(); }
-	 * 
-	 * @Given("click on Insertion") public void click_on_insertion() {
-	 * obj.InsertMethod(); obj.TryMethod(); obj.TextMethod(); obj.RunMethod(); }
-	 * 
-	 * @Given("click on Deletion") public void click_on_deletion() {
-	 * obj.DeleteMethod(); obj.TryMethod(); obj.TextMethod(); obj.RunMethod(); }
-	 */
-
-
 }

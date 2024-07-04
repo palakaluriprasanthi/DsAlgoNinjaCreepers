@@ -1,5 +1,4 @@
 package dsAlgoPages;
-
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -27,9 +26,9 @@ public class DsAlgoRegisterPage {
 	public WebElement confirmpwd;
 	@FindBy(xpath = "/html/body/div[3]")
 	WebElement errorMsg;
-	
+
 	public DsAlgoRegisterPage(WebDriver driver) {
-		this.driver=driver;
+		DsAlgoRegisterPage.driver=driver;
 		PageFactory.initElements(driver, this);
 	}
 

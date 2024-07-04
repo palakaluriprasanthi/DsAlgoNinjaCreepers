@@ -1,5 +1,4 @@
 package dsUtilities;
-
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -19,8 +18,8 @@ import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.ss.usermodel.WorkbookFactory;
 
 public class ExcelReader  {
-	
-	
+
+
 	public void readData() throws IOException {
 	String path = System.getProperty("user.dir")+"/src/test/resources/TestData/Demo.xlsx";
 	File file = new File(path);
@@ -36,15 +35,15 @@ public class ExcelReader  {
 			System.out.println(currentCell.getStringCellValue());
 		}
 	}
-	
+
 	}
-	
+
 	public static int totalRow;
 
 
 	public static List<Map<String, String>> getData(String excelpath, String sheetName)
 			throws InvalidFormatException, IOException {
-		
+
 		Workbook workbook = WorkbookFactory.create(new File(excelpath));
 		Sheet sheet = workbook.getSheet(sheetName);
 		workbook.close();
@@ -87,11 +86,5 @@ public class ExcelReader  {
 
 			return totalRow;
 		}
-
-
-	
-	
-	
-	
 
 }

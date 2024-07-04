@@ -1,12 +1,12 @@
 package dsAlgoStepDefinitions;
 
-import static org.testng.Assert.assertEquals;
 
 import org.openqa.selenium.By;
 
 import dsAlgoPages.DsAlgoTreePage;
 import dsAlgoPages.DsAlgoTryEditorPage;
 import dsalgo_hooks.DriverFactory;
+
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
@@ -124,4 +124,10 @@ public class DsAlgoTreeStepDefinition {
 	public void user_should_navigate_to_implementation_of_bst_page() {
 		dsAlgoTreePage.ImplementationOfBSTHeader.isDisplayed();
 	 }
+	 @When("User enters the invalid code and click on run button")
+	 public void invalid_code() {
+		 dsAlgoTryEditorPage.enterValidCode();
+			dsAlgoTryEditorPage.Runtab.click();
+	 }
 }
+

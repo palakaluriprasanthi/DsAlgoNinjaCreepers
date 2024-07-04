@@ -1,6 +1,5 @@
 package dsAlgoStepDefinitions;
-import static org.testng.Assert.assertEquals;
-import static org.testng.Assert.assertTrue;
+
 
 import dsAlgoPages.DsAlgoRegisterPage;
 import dsUtilities.LoggerLoad;
@@ -14,14 +13,14 @@ public class DsAlgoRegisterStepDefition {
  DsAlgoRegisterPage register = new DsAlgoRegisterPage(DriverFactory.getDriver());
  //public static registerurl;
  static String expErrormsg;
-	
+
 	// @TS_register_02
-	
+
 	@Given("The user opens Register Page")
 	public void the_user_opens_register_page() throws InterruptedException {
-		
+
 		LoggerLoad.info("The user opens Register Page");
-		
+
 		register.navigatetoRegisterPage();
 		//Thread.sleep(200);
 	}
@@ -37,6 +36,7 @@ public class DsAlgoRegisterStepDefition {
 	public void it_should_display_an_error_message_below_username_textbox(String string) {
 		LoggerLoad.info("Error message is displayed " + register.getEmptyfieldErrormsgUser()
 		+ " an error below Username textbox");
+		
 		//assertTrue(register.EmptyRequiredUser(), "Username Field is Empty - required attribute is validated");
 		//assertEquals(register.getEmptyfieldErrormsgUser(), expErrormsg);
 	}
@@ -44,7 +44,7 @@ public class DsAlgoRegisterStepDefition {
 	@When("The user clicks {string} button after entering username with other fields empty")
 	public void the_user_clicks_button_after_entering_username_with_other_fields_empty(String string, io.cucumber.datatable.DataTable dataTable) throws InterruptedException {
 LoggerLoad.info("The user enter valid username with other fields empty");
-		
+
 		register.entervalidUsername(dataTable);
 		register.clickOnRegisterButton();
 		//Thread.sleep(2000);
@@ -87,7 +87,7 @@ LoggerLoad.info("The user enter valid username with other fields empty");
 
 	@Then("It should display success message")
 	public void it_should_display_success_message() {
-	    
+
 	}
 
 

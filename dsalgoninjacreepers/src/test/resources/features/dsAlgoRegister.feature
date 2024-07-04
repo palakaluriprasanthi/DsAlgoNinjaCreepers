@@ -11,12 +11,18 @@ Given User is Logged into DSAlgo Portal
 
   @Testcase02
   Scenario: User is presented with error message for empty fields below Username textbox
+   Given The user opens DS Algo portal link
+    When The user clicks the "Get Started" button
+    Then The user should be redirected to homepage
     Given The user opens Register Page
     When The user clicks "Register" button with all fields empty
     Then It should display an error message "Please fill out this field." below Username textbox
 
     @Testcase03
     Scenario: User is presented with error message for empty fields below Password textbox
+     Given The user opens DS Algo portal link
+    When The user clicks the "Get Started" button
+    Then The user should be redirected to homepage
     Given The user opens Register Page
     When The user clicks "Register" button after entering username with other fields empty
       | username| password|
@@ -26,6 +32,9 @@ Given User is Logged into DSAlgo Portal
     
     @Testcase04
   Scenario: The user is presented with error message for empty fields below confirm Password textbox
+   Given The user opens DS Algo portal link
+    When The user clicks the "Get Started" button
+    Then The user should be redirected to homepage
     Given The user opens Register Page
     When The user clicks "Register" button after entering "username" and "password" with Password Confirmation field empty
       | username| password|
@@ -35,6 +44,9 @@ Given User is Logged into DSAlgo Portal
 
  @Testcase05
   Scenario: The user enters valid username and password 
+   Given The user opens DS Algo portal link
+    When The user clicks the "Get Started" button
+    Then The user should be redirected to homepage
     Given The user is on Register Page
     When The user clicks "Register" button after entering "username" and "password" and "confirmpassword"
       | username| password|confirmpassword|
