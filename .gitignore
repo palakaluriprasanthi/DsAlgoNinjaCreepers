@@ -1,0 +1,14 @@
+# eclipse files
+.classpath
+.project
+.settings
+
+# generated files
+*.class
+*.log
+*.pdf
+*.DS_Store
+
+# generated directories
+*test-output/
+*target/
