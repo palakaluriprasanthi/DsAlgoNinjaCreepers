@@ -8,6 +8,7 @@
 *.log
 *.pdf
 *.DS_Store
+*.allure
 
 # generated directories
 *test-output/
